@@ -1,11 +1,25 @@
 const express = require('express');
 const router = express.Router();
+// Middlware
+const auth = require('../middleware/auth');
+
+// Model
+const User = require('../models/User');
+const Contacts = require('../models/Contacts');
 
 // @route       GET api/contacts
 // @desc        Get all user contacts
 // @access      Public
-router.get('/', (req, res) => {
-  res.send('Get all contacts');
+router.get('/', auth, async (req, res) => {
+  try {
+    const contacts = await Contacts.find({ user: req.user.id }).sort({
+      date: -1
+    });
+    res.status(200).json(contacts);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json('Server error');
+  }
 });
 
 // @route       POST api/contacts
