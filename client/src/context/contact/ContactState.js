@@ -30,7 +30,7 @@ const ContactState = props => {
         type: 'personal'
       },
       {
-        id: 1,
+        id: 3,
         name: 'Sneaky Pete',
         email: 'spete@gmail.com',
         phone: '333-333-3333',
@@ -56,7 +56,7 @@ const ContactState = props => {
   //   CLEAR_FILTER
 
   return (
-    <ContactContext.Provider value={{ contacts: state.contact }}>
+    <ContactContext.Provider value={{ contacts: state.contacts }}>
       {props.children}
     </ContactContext.Provider>
   );
