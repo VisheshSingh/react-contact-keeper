@@ -60,6 +60,14 @@ export default (state, action) => {
           return contact.name.match(regex) || contact.email.match(regex);
         })
       };
+    case CLEAR_CONTACTS:
+      return {
+        ...state,
+        contacts: null,
+        filtered: null,
+        error: null,
+        current: null
+      };
     case CLEAR_FILTER:
       return {
         ...state,
