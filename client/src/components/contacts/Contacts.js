@@ -16,14 +16,22 @@ const Contacts = () => {
         {filtered === null
           ? contacts.map(contact => {
               return (
-                <CSSTransition key={contact.id} timeout={500} classNames="item">
+                <CSSTransition
+                  key={contact._id}
+                  timeout={500}
+                  classNames="item"
+                >
                   <ContactItem contact={contact} />
                 </CSSTransition>
               );
             })
           : filtered.map(contact => {
               return (
-                <CSSTransition key={contact.id} timeout={500} classNames="item">
+                <CSSTransition
+                  key={contact._id}
+                  timeout={500}
+                  classNames="item"
+                >
                   <ContactItem contact={contact} />
                 </CSSTransition>
               );
